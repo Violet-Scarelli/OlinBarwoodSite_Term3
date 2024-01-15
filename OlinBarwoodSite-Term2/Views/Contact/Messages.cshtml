@@ -1,0 +1,24 @@
+﻿@model List<Message>
+
+@{
+    ViewData["Title"] = "Messages";
+}
+
+
+@foreach (Message message in Model)
+{
+    <p>
+        <strong class="m-3">Sender:</strong>
+        @message.Sender<br />
+        <strong class="m-3">Recipient:</strong>
+        @message.Recipient<br />
+        <strong class="m-3">Priority:</strong>
+        @message.Priority<br />
+        <strong class="m-3">Subject:</strong>
+        @message.Subject<br />
+        <strong class="m-3">Body:</strong>
+        @message.MsgBody<br />
+        <strong class="m-3">Send Date:</strong>
+        @message.SendDate<br />
+    </p>
+}

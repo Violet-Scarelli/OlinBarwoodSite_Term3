@@ -1,0 +1,54 @@
+﻿@model Message
+@{
+    ViewData["Title"] = "Contact Us";
+}
+<div class="text-center jumbotron jumbotron-fluid bg-info">
+    <h1 class="display-4">Leave A Message</h1>
+</div>
+<form method="post" class="container">
+    <div class="row p-2">
+        <label asp-for="MessageID" class="control-label col-md-2">Message ID</label>
+        <input asp-for="MessageID" class="form-control col-md-4" /><br />
+    </div>
+    <div class="row p-2">
+        <label asp-for="Sender" class="control-label col-md-2">Sender Name</label>
+        <input asp-for="Sender" class="form-control col-md-4"/><br />
+    </div>
+    
+    <div class="row p-2">
+        <label asp-for="Recipient" class="control-label col-md-2">Recipient</label>
+        <input asp-for="Recipient" class="form-control col-md-4"/><br />
+    </div>
+    <div class="row p-2">
+        <label asp-for="Subject" class="control-label col-md-2">Message Subject</label>
+        <input asp-for="Subject" /><br />
+    </div>   
+    <div class="row p-2">
+        <label asp-for="MsgBody" class="control-label col-md-2">Message</label>
+        <textarea asp-for="MsgBody" class="form-control col-md-4"></textarea><br />
+    </div>
+    <div class="row p-4">
+        <button type="submit" class="form-control btn btn-success col-3 rounded-0">Send</button>
+    </div>
+</form>
+<br />
+@if(Model != null)
+{
+    <h2>Your Message</h2>
+    <p>
+        <strong class="m-3">Sender:</strong>
+        @Model.Sender<br />
+        <strong class="m-3">Recipient:</strong>
+        @Model.Recipient<br />
+        <strong class="m-3">Priority:</strong>
+        @Model.Priority<br />
+        <strong class="m-3">Subject:</strong>
+        @Model.Subject<br />
+        <strong class="m-3">Body:</strong>
+        @Model.MsgBody<br />
+        <strong class="m-3">Send Date:</strong>
+        @Model.SendDate<br />
+    </p>
+}
+
+<a href="/Contact/Index">Go back</a>

@@ -1,0 +1,32 @@
+﻿@model QuizVM
+@{
+    ViewData["Title"] = "Quiz";
+}
+
+<div>
+    <h1 class="display-4">Test Quiz</h1>
+    <form method="post" class="container">
+
+        <label asp-for="UserAnswer1" class="control-label">What is the most popular game on the planet?</label>
+        <input asp-for="UserAnswer1" type="text" class="form-control pb-1" />
+        <p>@Model?.RightOrWrong1</p>
+        <br />
+        <label asp-for="UserAnswer2">What lab number is this?</label>
+        <input asp-for="UserAnswer2" type="number" class="form-control pb-1" />
+        <p>@Model?.RightOrWrong2</p>
+        <br />
+        <p class="row">Brian Bird is a cool teacher.</p>
+        <div class="row">
+            <label for="true" class="col-1">True</label>
+            <input asp-for="UserAnswer3" id="true" type="radio" value="true" class="form-control col-1" />
+        </div>
+        <div class="row">
+            <label for="false" class="col-1">False</label>
+            <input asp-for="UserAnswer3" id="false" type="radio" value="false" class="form-control col-1" />
+        </div>
+        <p>@Model?.RightOrWrong3</p>
+
+        <br />
+        <input type="submit" value="Check Answers" class="form-control btn" />
+    </form>
+</div>
