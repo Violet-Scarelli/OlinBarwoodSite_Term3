@@ -8,11 +8,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("LocalDb");
-builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
-builder.Services.AddTransient<IMessageRepository, MessageRepository>();
-builder.Services.AddTransient<IMessageRepository, MessageRepository>();
+builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(connectionString));
 builder.Services.AddIdentity<User, IdentityRole>()
-    .AddEntityFrameworkStores<ApplicationDbContext>()
+    .AddEntityFrameworkStores<AppDbContext>()
     .AddDefaultTokenProviders();
 builder.Services.AddDbContext<AppDbContext>(options =>
        options.UseSqlServer(connectionString));
