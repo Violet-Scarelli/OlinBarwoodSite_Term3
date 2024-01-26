@@ -9,9 +9,9 @@ namespace OlinBarwoodSite_Term2.Controllers
 {
     public class ContactController : Controller
     {
-        ApplicationDbContext context;
+        AppDbContext context;
         IMessageRepository repo;
-        public ContactController(ApplicationDbContext c, IMessageRepository m)
+        public ContactController(AppDbContext c, IMessageRepository m)
         {
             context = c;
             repo = m;
