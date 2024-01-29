@@ -4,7 +4,7 @@ namespace OlinBarwoodSite_Term2.Controllers
 {
     public class ForumController : Controller
     {
-        public IActionResult Forum()
+        public IActionResult Index()
         {
             return View();
         }
