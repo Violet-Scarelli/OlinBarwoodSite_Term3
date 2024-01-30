@@ -1,12 +1,13 @@
-﻿using OlinBarwoodSite_Term2.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using OlinBarwoodSite_Term2.Models;
 
 namespace OlinBarwoodSite_Term2.Data;
 
 public class MessageRepository : IMessageRepository
 {
-    private ApplicationDbContext context;
+    private AppDbContext context;
 
-    public MessageRepository(ApplicationDbContext DbContext)
+    public MessageRepository(AppDbContext DbContext)
     {
         context = DbContext;
     }

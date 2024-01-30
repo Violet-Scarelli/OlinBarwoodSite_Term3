@@ -4,7 +4,7 @@ namespace OlinBarwoodSite_Term2.Controllers
 {
     public class InfoController : Controller
     {
-        public IActionResult Info()
+        public IActionResult Index()
         {
             return View();
         }
