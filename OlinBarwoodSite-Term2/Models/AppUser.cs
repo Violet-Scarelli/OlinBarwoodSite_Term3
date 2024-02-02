@@ -2,7 +2,7 @@
 
 namespace OlinBarwoodSite_Term2.Models
 {
-    public class User : IdentityUser
+    public class AppUser : IdentityUser
     {
         public string? Name { get; set; }
         public string? Password { get; set; }

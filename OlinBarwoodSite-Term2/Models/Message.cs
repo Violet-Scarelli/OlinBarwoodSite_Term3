@@ -7,8 +7,8 @@ namespace OlinBarwoodSite_Term2.Models
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int MessageID { get; set; }
-        public User? Sender { get; set; }
-        public User? Recipient { get; set; }
+        public AppUser? Sender { get; set; }
+        public AppUser? Recipient { get; set; }
         public string? Subject { get; set; }
         public int Priority { get; set; }
         public string? MsgBody { get; set; }
