@@ -17,6 +17,7 @@ builder.Services.AddIdentity<User, IdentityRole>()
 builder.Services.AddDbContext<AppDbContext>(options =>
        options.UseSqlServer(connectionString));
 builder.Services.AddControllersWithViews();
+builder.Services.AddTransient<IMessageRepository, MessageRepository>();
 var app = builder.Build();
 
 
@@ -38,5 +39,12 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+using (var scope = app.Services.CreateScope())
+{
+    var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    await ConfigureIdentity.CreateAdminUserAsync(scope.ServiceProvider);
+    var context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    AppDbInitializer.Seed(context, scope.ServiceProvider);
+}
 
 app.Run();
