@@ -10,10 +10,10 @@ namespace OlinBarwoodSite_Term2.Models;
             var roleManager =
                 provider.GetRequiredService<RoleManager<IdentityRole>>();
             var userManager =
-                provider.GetRequiredService<UserManager<AppUser>>();
+                provider.GetRequiredService<UserManager<User>>();
 
             string username = "admin";
-            string password = "nimda";
+            string password = "1234";
             string roleName = "Admin";
 
             // if role doesn't exist, create it
@@ -25,7 +25,7 @@ namespace OlinBarwoodSite_Term2.Models;
             // if username doesn't exist, create it and add to role
             if (await userManager.FindByNameAsync(username) == null)
             {
-                AppUser user = new AppUser { UserName = username };
+                User user = new User { UserName = username };
                 var result = await userManager.CreateAsync(user, password);
                 if (result.Succeeded)
                 {
