@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace OlinBarwoodSite_Term2.Models
+namespace OlinBarwoodSite_Term3.Models
 {
     public class Message
     {

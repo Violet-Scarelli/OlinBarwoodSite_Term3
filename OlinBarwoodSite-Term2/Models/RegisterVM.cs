@@ -1,15 +1,16 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace OlinBarwoodSite_Term2.Models
+namespace OlinBarwoodSite_Term3.Models
 {
     public class RegisterVM
     {
         [StringLength(255)]
         public string Name { get; set; } = string.Empty;
 
-        [Required(ErrorMessage = "Please enter a username.")]
+        [Required(ErrorMessage = "Please enter an email.")]
+        [DataType(DataType.EmailAddress)]
         [StringLength(255)]
-        public string Username { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "Please enter a password.")]
         [DataType(DataType.Password)]

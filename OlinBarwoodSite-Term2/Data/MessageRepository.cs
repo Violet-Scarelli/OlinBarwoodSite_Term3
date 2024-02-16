@@ -1,12 +1,13 @@
-﻿using OlinBarwoodSite_Term2.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using OlinBarwoodSite_Term3.Models;
 
-namespace OlinBarwoodSite_Term2.Data;
+namespace OlinBarwoodSite_Term3.Data;
 
 public class MessageRepository : IMessageRepository
 {
-    private ApplicationDbContext context;
+    private AppDbContext context;
 
-    public MessageRepository(ApplicationDbContext DbContext)
+    public MessageRepository(AppDbContext DbContext)
     {
         context = DbContext;
     }
@@ -15,22 +16,30 @@ public class MessageRepository : IMessageRepository
     {
         get
         {
-            return context.Messages;
+            return context.Messages
+                .Include(message => message.Sender)
+                .Include(message => message.Recipient)
+                .Include(message => message.Subject)
+                .Include(message => message.MsgBody);
         }
     }
 
     public Message RetrieveMessageByID(int ID)
     {
-        var score = context.Messages
-            .Where(score => score.MessageID == ID)
+        var message = context.Messages
+            .Include(message => message.Sender)
+            .Include(message => message.Recipient)
+            .Include(message => message.Subject)
+            .Include(message => message.MsgBody)
+            .Where(message => message.MessageID == ID)
             .SingleOrDefault();
-        return score;
+        return message;
     }
 
-    public void AddMessage(Message model)
+    public int AddMessage(Message model)
     {
         model.SendDate = DateTime.Now;
         context.Messages.Add(model);
-        context.SaveChanges();
+        return context.SaveChanges();
     }
 }
