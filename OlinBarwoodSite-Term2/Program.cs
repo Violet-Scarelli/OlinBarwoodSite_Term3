@@ -53,5 +53,5 @@ using (var scope = app.Services.CreateScope())
     await ConfigureIdentity.CreateAdminUserAsync(scope.ServiceProvider);
     Seeder.Seed(dbContext, scope.ServiceProvider);
 }
-
+//Adding this comment so I can commit to lab 4
 app.Run();
