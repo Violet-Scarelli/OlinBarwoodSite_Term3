@@ -6,9 +6,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using OlinBarwoodSite_Term2.Models;
+using OlinBarwoodSite_Term3.Models;
 
-namespace OlinBarwoodSite_Term2.Controllers
+namespace OlinBarwoodSite_Term3.Controllers
 {
     public class HomeController : Controller
     {

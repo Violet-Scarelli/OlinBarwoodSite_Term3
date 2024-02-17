@@ -1,17 +1,17 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using OlinBarwoodSite_Term2.Models;
-using OlinBarwoodSite_Term2.Data;
+using OlinBarwoodSite_Term3.Models;
+using OlinBarwoodSite_Term3.Data;
 using System;
 using System.Linq;
 
-namespace OlinBarwoodSite_Term2.Controllers
+namespace OlinBarwoodSite_Term3.Controllers
 {
     public class ContactController : Controller
     {
-        ApplicationDbContext context;
+        AppDbContext context;
         IMessageRepository repo;
-        public ContactController(ApplicationDbContext c, IMessageRepository m)
+        public ContactController(AppDbContext c, IMessageRepository m)
         {
             context = c;
             repo = m;

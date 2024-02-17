@@ -1,4 +1,4 @@
-﻿namespace OlinBarwoodSite_Term2.Models
+﻿namespace OlinBarwoodSite_Term3.Models
 {
     public class Search
     {
